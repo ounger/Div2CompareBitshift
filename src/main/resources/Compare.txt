@@ -1,0 +1,26 @@
+javap -c ABC.class:
+-c
+  Prints out disassembled code, i.e., the instructions that comprise the Java bytecodes, 
+  for each of the methods in the class. These are documented in the Java Virtual Machine Specification.
+
+public static long gaussSumByBitshift(long);
+	Code:
+		0: lload_0								# Me: Load long from local variable
+		1: lload_0								# Me: s. o.
+		2: lconst_1								# Me: Push long constant
+		3: ladd									# Me: Add long
+		4: lmul									# Me: Multiply long
+		5: iconst_1								# Me: Push int constant
+		6: lshr									# Me: Arithmetic shift right long
+		7: lreturn								# Me: Return long from method
+
+public static long gaussSumByDiv(long);
+    Code:
+		0: lload_0								# Me: s. o.
+		1: lload_0								# Me: s. o.
+		2: lconst_1								# Me: s. o.
+		3: ladd									# Me: s. o.		
+		4: lmul									# Me: s. o.
+		5: ldc2_w        #9 // long 2l			# Me: Push long or double from run-time constant pool (wide index)
+		8: ldiv									# Me: Divide long
+		9: lreturn								# Me: s. o.
