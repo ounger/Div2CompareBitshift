@@ -1,0 +1,9 @@
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+
+Benchmark                          Mode  Cnt   Score   Error  Units
+GaussSumBM.testGaussSumByBitshift  avgt    5  16,384 ± 0,150  ms/op
+GaussSumBM.testGaussSumByDiv       avgt    5  16,266 ± 0,086  ms/op
