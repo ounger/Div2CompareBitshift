@@ -1,6 +1,8 @@
 package ch.oliverunger;
 
-import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -30,20 +32,20 @@ public class GaussSumBM {
     }
 
     @Benchmark
-    public void testGaussSumByDiv() {
+    public void testGaussSumByDiv(Blackhole blackhole) {
         final Random rng = new Random();
-        for(int i = 0; i < ITERATIONS; i++) {
+        for (int i = 0; i < ITERATIONS; i++) {
             final long n = rng.nextLong(MAX_N - MIN_N) + MIN_N;
-            gaussSumByDiv(n);
+            blackhole.consume(gaussSumByDiv(n)); // Prevent dead-code elimination (DCE)
         }
     }
 
     @Benchmark
-    public void testGaussSumByBitshift() {
+    public void testGaussSumByBitshift(Blackhole blackhole) {
         final Random rng = new Random();
-        for(int i = 0; i < ITERATIONS; i++) {
+        for (int i = 0; i < ITERATIONS; i++) {
             final long n = rng.nextLong(MAX_N - MIN_N) + MIN_N;
-            gaussSumByBitshift(n);
+            blackhole.consume(gaussSumByBitshift(n)); // Prevent dead-code elimination (DCE)
         }
     }
 
