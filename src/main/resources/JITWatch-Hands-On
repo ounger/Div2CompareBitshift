@@ -1,0 +1,19 @@
+Chris Newland (Java Champion)
+Founder of JITWatch
+LJC: Understanding HotSpot JVM Performance with JITWatch july 8th 6pm
+https://invidious.namazso.eu/watch?v=p7ipmAa9_9E
+
+Klonen des Repos allein reicht nicht aus. Builden der Binaries
+muss über Maven erfolgen:
+mvn clean compile test exec:java
+
+Das Starten der .../scripts/launchUI.bat hat bei mir trotzdem nicht funktioniert.
+Stattdessen:
+Cmd als Admin öffnen
+cd C:\"Program Files"\"Git Projects"\jitwatch
+mvn exec:java
+
+Problem mit fehlendem Disassembler hsdis-amd64.dll und Download über JITWatch geht nicht:
+Manuell herunterladen von
+https://chriswhocodes.com/hsdis/
+In Ordner packen C:\"Program Files"\"Git Projects"\jitwatch
